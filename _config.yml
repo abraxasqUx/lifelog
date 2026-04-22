@@ -9,7 +9,7 @@ plugins:
   - jekyll-feed
 
 author:
-  name: abraxasq
+  name: abraxasQ
 
 header_pages:
   - tags/stocks.md
