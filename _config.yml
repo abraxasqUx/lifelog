@@ -9,7 +9,7 @@ plugins:
   - jekyll-feed
 
 author:
-  name: abraxasqUx
+  name: abraxasq
 
 exclude:
   - README.md
