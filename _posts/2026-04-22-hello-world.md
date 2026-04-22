@@ -6,4 +6,5 @@ categories: meta
 tags: [NOTES]
 ---
 
-First entry. This blog is operational.
+First entry. This blog is operational.  
+Second. 
