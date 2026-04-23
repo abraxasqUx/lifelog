@@ -5,7 +5,7 @@ date: 2026-04-23 13:31:00 +0000
 tags: [TOOLS, 개발]
 ---
 
-[🚀 이 기능 실행해보기](https://abraxasqux.github.io/tools/stock-calculator/index.html)
+[🚀 이 기능 실행해보기](https://abraxasqux.github.io/lifelog/tools/stock-calculator/index.html)
 
 ---
 

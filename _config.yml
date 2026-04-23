@@ -1,5 +1,7 @@
 title: lifelog
 description: A personal log.
+url: "https://abraxasqux.github.io"
+baseurl: "/lifelog"
 theme: minima
 future: true
 
