@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복리 계산기</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>복리 계산기</h1>
+
+    <div class="card">
+      <h2>투자 정보</h2>
+      <div class="input-group">
+        <label for="principal">초기 원금 (원)</label>
+        <input type="number" id="principal" placeholder="10000000" min="0">
+      </div>
+      <div class="input-group">
+        <label for="rate">연 이자율 (%)</label>
+        <input type="number" id="rate" placeholder="7" step="0.1" min="0">
+      </div>
+      <div class="input-group">
+        <label for="compound">복리 주기</label>
+        <select id="compound">
+          <option value="12">월복리 (12회/년)</option>
+          <option value="4">분기복리 (4회/년)</option>
+          <option value="2">반기복리 (2회/년)</option>
+          <option value="1">연복리 (1회/년)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="years">투자 기간 (년)</label>
+        <input type="number" id="years" placeholder="10" min="1" max="100">
+      </div>
+      <div class="input-group">
+        <label for="monthly">월 추가 납입 (원)</label>
+        <input type="number" id="monthly" placeholder="0 (선택사항)" min="0">
+      </div>
+    </div>
+
+    <button id="calcBtn">계산하기</button>
+
+    <div class="results" id="results">
+      <h2>계산 결과</h2>
+      <div class="result-highlight">
+        <div class="result-main">
+          <span class="label">최종 금액</span>
+          <span class="value big" id="finalAmount">-</span>
+        </div>
+        <div class="result-main">
+          <span class="label">총 납입 원금</span>
+          <span class="value big neutral" id="totalPrincipal">-</span>
+        </div>
+        <div class="result-main">
+          <span class="label">총 이자 수익</span>
+          <span class="value big profit" id="totalInterest">-</span>
+        </div>
+      </div>
+      <div class="result-grid" style="margin-top:12px;">
+        <div class="result-item">
+          <span class="label">수익률</span>
+          <span class="value" id="roi">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">연평균 수익률 (CAGR)</span>
+          <span class="value" id="cagr">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">원금 2배 도달 기간</span>
+          <span class="value" id="doubleTime">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">이자/원금 비율</span>
+          <span class="value" id="interestRatio">-</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-section" id="chartSection">
+      <h2>연도별 자산 성장 그래프</h2>
+      <p class="chart-desc">원금(납입액) vs 이자 누적 추이</p>
+      <canvas id="growthChart"></canvas>
+    </div>
+
+    <div class="table-section" id="tableSection">
+      <h2>연도별 상세 내역</h2>
+      <div class="table-wrap">
+        <table id="yearTable">
+          <thead>
+            <tr>
+              <th>연도</th>
+              <th>납입 원금</th>
+              <th>누적 이자</th>
+              <th>최종 금액</th>
+              <th>수익률</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
