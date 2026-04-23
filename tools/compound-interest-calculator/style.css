@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111827;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 24px 16px 48px;
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 28px;
+  color: #7dd3fc;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 1rem;
+  color: #7dd3fc;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1e3a5f;
+}
+
+.card {
+  background: #1a2332;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 14px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.input-group:last-child {
+  margin-bottom: 0;
+}
+
+.input-group label {
+  color: #94a3b8;
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.input-group input,
+.input-group select {
+  background: #0f1a2b;
+  border: 1px solid #1e3a5f;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 7px;
+  width: 190px;
+  font-size: 0.95rem;
+  text-align: right;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #7dd3fc;
+}
+
+#calcBtn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: #7dd3fc;
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 1px;
+}
+
+#calcBtn:hover { background: #38bdf8; }
+#calcBtn:active { transform: scale(0.99); }
+
+/* Results */
+.results,
+.chart-section,
+.table-section {
+  background: #1a2332;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.result-highlight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.result-main {
+  background: #0f1a2b;
+  border: 1px solid #1e3a5f;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.result-main .label {
+  display: block;
+  color: #64748b;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-main .value.big {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.result-item {
+  background: #0f1a2b;
+  border-radius: 8px;
+  padding: 11px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #1e3a5f;
+}
+
+.result-item .label {
+  color: #94a3b8;
+  font-size: 0.82rem;
+}
+
+.result-item .value {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.profit  { color: #4ade80; }
+.neutral { color: #94a3b8; }
+
+/* Chart */
+.chart-desc {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+  margin-top: -8px;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+thead th {
+  background: #0f1a2b;
+  color: #7dd3fc;
+  padding: 10px 12px;
+  text-align: right;
+  border-bottom: 1px solid #1e3a5f;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+thead th:first-child { text-align: center; }
+
+tbody tr:nth-child(even) { background: #0f1a2b44; }
+
+tbody td {
+  padding: 9px 12px;
+  text-align: right;
+  border-bottom: 1px solid #1e3a5f22;
+  color: #cbd5e1;
+}
+
+tbody td:first-child {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+tbody td.roi-cell { color: #4ade80; }
+
+/* Responsive */
+@media (max-width: 560px) {
+  h1 { font-size: 1.4rem; }
+
+  .result-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    text-align: left;
+  }
+
+  .result-main .value.big {
+    font-size: 0.98rem;
+  }
+}
