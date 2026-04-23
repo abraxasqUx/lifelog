@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주식 수익률 계산기</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>주식 수익률 계산기</h1>
+
+    <div class="card">
+      <h2>매수 정보</h2>
+      <div class="input-group">
+        <label for="buyPrice">매수가 (원)</label>
+        <input type="number" id="buyPrice" placeholder="50000" min="0">
+      </div>
+      <div class="input-group">
+        <label for="buyQty">매수 수량 (주)</label>
+        <input type="number" id="buyQty" placeholder="100" min="1">
+      </div>
+      <div class="input-group">
+        <label for="buyFee">매수 수수료율 (%)</label>
+        <input type="number" id="buyFee" value="0.015" step="0.001" min="0">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>매도 정보</h2>
+      <div class="input-group">
+        <label for="sellPrice">매도가 (원)</label>
+        <input type="number" id="sellPrice" placeholder="55000" min="0">
+      </div>
+      <div class="input-group">
+        <label for="sellFee">매도 수수료율 (%)</label>
+        <input type="number" id="sellFee" value="0.015" step="0.001" min="0">
+      </div>
+      <div class="input-group">
+        <label for="taxType">증권거래세</label>
+        <select id="taxType">
+          <option value="0.18">KOSPI (0.18%)</option>
+          <option value="0.23">KOSDAQ (0.23%)</option>
+          <option value="0">없음 (0%)</option>
+          <option value="custom">직접 입력</option>
+        </select>
+      </div>
+      <div class="input-group" id="customTaxGroup">
+        <label for="customTax">세율 직접 입력 (%)</label>
+        <input type="number" id="customTax" placeholder="0.20" step="0.01" min="0">
+      </div>
+    </div>
+
+    <button id="calcBtn">계산하기</button>
+
+    <div class="results" id="results">
+      <h2>계산 결과</h2>
+      <div class="result-grid">
+        <div class="result-item">
+          <span class="label">총 매수금액</span>
+          <span class="value" id="totalBuy">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">매수 수수료</span>
+          <span class="value" id="buyFeeAmt">-</span>
+        </div>
+        <div class="result-item highlight-row">
+          <span class="label">실제 투자비용</span>
+          <span class="value" id="totalCost">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">총 매도금액</span>
+          <span class="value" id="totalSell">-</span>
+        </div>
+        <div class="result-item">
+          <span class="label">매도 수수료 + 세금</span>
+          <span class="value" id="sellDeductions">-</span>
+        </div>
+        <div class="result-item highlight-row">
+          <span class="label">실제 수령금액</span>
+          <span class="value" id="netSell">-</span>
+        </div>
+      </div>
+      <div class="result-highlight">
+        <div class="result-main">
+          <span class="label">순손익</span>
+          <span class="value big" id="profit">-</span>
+        </div>
+        <div class="result-main">
+          <span class="label">수익률</span>
+          <span class="value big" id="rate">-</span>
+        </div>
+        <div class="result-main">
+          <span class="label">손익분기가</span>
+          <span class="value big neutral" id="bep">-</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-section" id="chartSection">
+      <h2>매도가별 수익률 그래프</h2>
+      <p class="chart-desc">현재 매수가 기준 ±범위의 예상 수익률</p>
+      <canvas id="profitChart"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
