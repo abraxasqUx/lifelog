@@ -1,7 +1,11 @@
 ---
 ---
 
-@import "minima";
+@charset "utf-8";
+
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize";
 
 // ─── Dropdown nav ─────────────────────────────────────────────────────────────
 
@@ -34,6 +38,7 @@
     display: block;
     padding: 5px 14px;
     font-size: $small-font-size;
+    margin-right: 0 !important;
 
     &:hover {
       background-color: $brand-color-dark;
@@ -41,7 +46,6 @@
   }
 }
 
-// 모바일: 드롭다운 항상 표시 (flat indent)
 @include media-query($on-palm) {
   .nav-dropdown {
     display: block;
