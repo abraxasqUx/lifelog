@@ -3,35 +3,62 @@
 
 @import "minima";
 
-// ─── Stock filter button group ────────────────────────────────────────────────
+// ─── SAP Fiori 3 Segmented Button ────────────────────────────────────────────
+// Ref: SAP Fundamental Styles fd-segmented-button / Quartz theme tokens
+
+$fiori-primary:      #0854a0;
+$fiori-primary-hover:#e5f0ff;
+$fiori-border:       #0854a0;
+$fiori-text:         #0854a0;
+$fiori-text-active:  #ffffff;
+$fiori-radius:       0.25rem;
+$fiori-height:       2rem;
 
 .stock-filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 20px;
+  display: inline-flex;
+  margin-bottom: 1.5rem;
 }
 
 .stock-filter-btn {
-  padding: 4px 14px;
-  font-size: $small-font-size;
-  font-family: $base-font-family;
-  color: $grey-color-dark;
-  background: transparent;
-  border: 1px solid $grey-color-light;
-  border-radius: 14px;
+  height: $fiori-height;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-family: "72", "72full", $base-font-family;
+  font-weight: normal;
+  line-height: calc(#{$fiori-height} - 2px);
+  color: $fiori-text;
+  background: #ffffff;
+  border: 1px solid $fiori-border;
+  border-right: none;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  text-align: center;
+  transition: background 0.1s;
 
-  &:hover {
-    border-color: $brand-color;
-    color: $brand-color;
+  &:first-child {
+    border-radius: $fiori-radius 0 0 $fiori-radius;
+  }
+
+  &:last-child {
+    border-right: 1px solid $fiori-border;
+    border-radius: 0 $fiori-radius $fiori-radius 0;
+  }
+
+  &:hover:not(.active) {
+    background: $fiori-primary-hover;
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid $fiori-border;
+    outline-offset: -0.125rem;
+    z-index: 1;
   }
 
   &.active {
-    background: $brand-color;
-    border-color: $brand-color;
-    color: #fff;
+    background: $fiori-primary;
+    color: $fiori-text-active;
+    position: relative;
+    z-index: 1;
   }
 }
 

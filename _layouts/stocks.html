@@ -5,12 +5,12 @@ layout: default
 <div class="home">
   <h1 class="page-heading">{{ page.title }}</h1>
 
-  <div class="stock-filter-group">
-    <button class="stock-filter-btn active" data-filter="all">전체</button>
-    <button class="stock-filter-btn" data-filter="STOCK-탐색">탐색</button>
-    <button class="stock-filter-btn" data-filter="STOCK-운영">운영</button>
-    <button class="stock-filter-btn" data-filter="STOCK-현인">현인</button>
-    <button class="stock-filter-btn" data-filter="STOCK-시황">시황</button>
+  <div class="stock-filter-group" role="group" aria-label="Post filter">
+    <button class="stock-filter-btn active" data-filter="all">All</button>
+    <button class="stock-filter-btn" data-filter="STOCK-탐색">Explore</button>
+    <button class="stock-filter-btn" data-filter="STOCK-운영">Manage</button>
+    <button class="stock-filter-btn" data-filter="STOCK-현인">Insights</button>
+    <button class="stock-filter-btn" data-filter="STOCK-시황">Market</button>
   </div>
 
   {% assign posts_a = site.posts | where_exp: "post", "post.tags contains 'STOCK-탐색'" %}
